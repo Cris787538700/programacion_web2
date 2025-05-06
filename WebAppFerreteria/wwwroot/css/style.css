@@ -1,0 +1,108 @@
+.header-logo {
+    height: 60px;
+    width: auto;
+}
+/* Hover naranja */
+nav ul li a:hover {
+    background-color: #F7941D !important;
+    color: #fff !important;
+    transition: background-color 0.2s ease-in-out;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+main {
+    margin-top: 64px; /* altura del nav para ‘empujar’ el contenido */
+}
+
+h1 {
+    margin-top: 0; /* elimina margen superior en todos los h1 */
+}
+
+/* reemplaza tu .container-inicio por esto: */
+.container-inicio {
+    background-color: #212121; /* gris muy oscuro: igual que el header */
+    padding: 40px 0; /* altura “dinámica” para que se vea */
+    text-align: center;
+}
+
+
+
+/* por ejemplo en style.css */
+.carousel.carousel-slider {
+    height: 400px !important;
+    border-radius: 30px;
+    overflow: hidden; /*Asegura que el contenido extra se recorte*/
+    position: relative;
+}
+
+/* para que la img escale sin cortar: */
+.carousel .carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    display: block;
+    visibility: visible;
+
+}
+
+.carousel .indicators .indicator-item {
+    background-color: rgba(255, 255, 255, 0.5); /* Color semi-transparente */
+}
+
+.carousel .indicators .indicator-item.active {
+    background-color: #F7941D; 
+}
+
+/*.card {
+    height: 100%;*/ /* Asegura altura 100% dentro del contenedor */
+    /*display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;*/ /* Altura fija que puedes ajustar */
+/*}*/
+
+/*.card .card-image {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}*/
+
+/*.card .card-image img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}*/
+
+/*.card .card-content {
+    flex-grow: 1;
+    min-height: 100px !important;
+}*/
+
+.card .card-action {
+    display: flex;
+    justify-content: center;
+}
+
+.card .card-action .btn {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.card .card-action .btn:hover {
+   
+    background-color: #fb8c00 !important;
+   
+    color: white !important;
+    }
+
+footer{
+    margin-bottom:0px;
+}

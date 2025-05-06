@@ -1,0 +1,123 @@
+﻿@model WebAppFerreteria.Models.Usuarios
+
+@{
+    ViewData["Title"] = "Editar Usuario";
+}
+
+<style>
+    body {
+        background-color: #1D1D1D;
+    }
+
+    .form-container {
+        background-color: #212121;
+        padding: 40px;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        border-radius: 10px;
+        color: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .page-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    label {
+        color: #ccc;
+        margin-top: 15px;
+    }
+
+    .form-control {
+        background-color: #2C2C2C;
+        color: white;
+        border: 1px solid #444;
+    }
+
+    .form-control:focus {
+        background-color: #2C2C2C;
+        border-color: #fb8c00;
+        box-shadow: none;
+    }
+
+    .btn-save {
+        background-color: #43a047 !important;
+        color: white !important;
+    }
+
+    .btn-back {
+        background-color: #fb8c00 !important;
+        color: white !important;
+        margin-left: 10px;
+    }
+
+    .form-group span.text-danger {
+        font-size: 0.9rem;
+    }
+
+    .action-buttons {
+        margin-top: 20px;
+    }
+
+    a {
+        color: #fb8c00;
+    }
+
+    input.select-dropdown{
+        color: white;
+    }
+</style>
+
+<div class="container form-container">
+    <h4 class="page-title">Editar Información del Usuario</h4>
+
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+
+        <div class="form-group">
+            <label for="NombreUsuario">Nombre de Usuario</label>
+            <input asp-for="NombreUsuario" class="form-control" placeholder="Ej: usuario123" />
+            <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="Contrasena">Contraseña</label>
+            <input asp-for="Contrasena" class="form-control" placeholder="********" />
+            <span asp-validation-for="Contrasena" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="Rol">Rol</label>
+            <input asp-for="Rol" class="form-control" placeholder="Ej: Administrador" />
+            <span asp-validation-for="Rol" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="NombreCompleto">Nombre Completo</label>
+            <input asp-for="NombreCompleto" class="form-control" placeholder="Ej: Juan Pérez" />
+            <span asp-validation-for="NombreCompleto" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="EstaBloqueado" class="control-label">¿Está Bloqueado?</label>
+            <select asp-for="EstaBloqueado" class="form-control" style="color: white;">
+                <option value="false">No</option>
+                <option value="true">Sí</option>
+            </select>
+            <span asp-validation-for="EstaBloqueado" class="text-danger"></span>
+        </div>
+
+        <div class="action-buttons">
+            <input type="submit" value="Guardar Cambios" class="btn btn-save" />
+            <a asp-action="Index" class="btn btn-back">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

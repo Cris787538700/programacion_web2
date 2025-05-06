@@ -1,0 +1,128 @@
+﻿@model WebAppFerreteria.Models.Pedidos
+
+@{
+    ViewData["Title"] = "Editar Pedido";
+}
+
+<style>
+    body {
+        background-color: #1D1D1D;
+    }
+
+    .edit-container {
+        background-color: #212121;
+        padding: 40px;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        border-radius: 10px;
+        color: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    h4 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+        text-align: center;
+        color: #fff;
+    }
+
+    label {
+        font-weight: bold;
+        color: #ccc;
+    }
+
+    input.form-control,
+    select.form-control {
+        background-color: #333;
+        color: white;
+        border: 1px solid #555;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .btn-orange {
+        background-color: #fb8c00 ;
+        color: white;
+        border: none;
+    }
+
+    .btn-orange:hover {
+        background-color: #ff6d00;
+    }
+
+    a {
+        color: #fb8c00 ;
+        text-decoration: none;
+        margin-top: 20px;
+        display: inline-block;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+    input.select-dropdown{
+        color: white;
+    }
+
+    .btn-save {
+        background-color: #43a047 !important;
+        color: white !important;
+        margin-top: 20px;
+    }
+    .btn-back {
+        background-color: #fb8c00 !important;
+        color: white !important;
+        margin-left: 10px;
+    }
+</style>
+
+<div class="container edit-container">
+    <h4>Editar Pedido</h4>
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+
+        <div class="form-group">
+            <label class="control-label">Nombre del Cliente</label>
+            <select asp-for="ClienteId" class="form-control" asp-items="ViewBag.ClienteId"></select>
+            <span asp-validation-for="ClienteId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Fecha de Pedido</label>
+            <input asp-for="FechaPedido" class="form-control" />
+            <span asp-validation-for="FechaPedido" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Estado" class="control-label"></label>
+            <input asp-for="Estado" class="form-control" />
+            <span asp-validation-for="Estado" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Dirección de Entrega</label>
+            <input asp-for="DireccionEntrega" class="form-control" />
+            <span asp-validation-for="DireccionEntrega" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Nombre Empleado</label>
+            <select asp-for="EmpleadoId" class="form-control" asp-items="ViewBag.EmpleadoId"></select>
+            <span asp-validation-for="EmpleadoId" class="text-danger"></span>
+        </div>
+
+        <div class="action-buttons">
+            <input type="submit" value="Guardar Cambios" class="btn btn-save" />
+            <a asp-action="Index" class="btn btn-back">Cancelar</a>
+        </div>
+    </form>
+
+        
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

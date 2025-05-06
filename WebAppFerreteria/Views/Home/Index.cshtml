@@ -1,0 +1,126 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+
+<!-- Carrucel -->
+<div class="hero-section" style="background-color: #1D1D1D;">
+
+    <div class="hero-overlay center-align">
+        <h1 class="white-text">FERRETERÍA MVC</h1>
+    </div>
+    
+   <div class="container section">
+       <div class="row">
+           <div class="col s12"> 
+                <div class="carousel carousel-slider ">
+                    <a class="carousel-item" href="#one!"><img src="~/Imagenes/imagen _fondo_carrucel_modificada.png"></a>
+                    <a class="carousel-item" href="#two!"><img src="~/Imagenes/operario_ok_2.png"></a>
+                    <a class="carousel-item" href="#three!"><img src="~/Imagenes/Operario_logo_2.png"></a>
+                    <div class="carousel-fixed-item center" style="z-index: 1000; pointer-events: auto;">
+                        <a href="@Url.Action("New", "Productos")"
+                        class="btn orange darken-1"
+                        style="z-index: 1001; pointer-events: auto;">Ver productos</a>
+                    </div>
+
+                    <div class="carousel-fixed-item center white-text" style="height:260px;">
+                        <h2>¡TODO EN HERRAMIENTAS!</h2>
+                        <h5>Gran variedad y precios bajos</h5>
+                        
+                    </div>
+                </div>
+            </div>
+       </div>
+   </div>
+
+    <div class="center-align">
+        
+    </div>
+
+    <!-- 2. BANNER OFERTAS -->
+    <div class="hero-overlay center-align" style="background-color:#fb8c00   !important">
+
+        <h2 class="white-text" style="margin-top: 0px;">OFERTAS ESPECIALES</h2>
+        <p class="grey-text text-lighten-2">¡Ahorra hasta un 50%!</p>
+        <br />        
+    </div>
+</div>
+
+<!-- . PRODUCTOS -->
+<div class="offers-banner" style="background:#e0e0e0;">
+    <div class="container products-section">
+        <div class="row" style="margin-bottom: 0px;">
+            @* Caja de Herramintas *@
+            <div class="col s12 m6 l3">
+                <div class="card hoverable" >
+                    <div class="card-image">
+                        <img src="@(Url.Content("~/Imagenes/caja_de_herramientas_card.png"))" alt="Martillo">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">Caja de Herramientas</span>
+                        @* <p>Caja plástica resistente, perfecta para almacenar y organizar herramientas.</p> *@
+                    </div>
+                    <div class="card-action">
+                        <a asp-area="" asp-controller="Home" asp-action="ProductosIni"
+                           class="btn grey lighten-2 black-text">Ver detalles</a>                       
+                    </div>
+                </div>
+            </div>
+
+            @* Martillo *@
+            <div class="col s12 m6 l3">
+                <div class="card hoverable">
+                    <div class="card-image">
+                        <img src="@(Url.Content("~/Imagenes/martillo_card.png"))" alt="Martillo">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">Martillo de Acero</span>
+                       @*  <p>Martillo de acero con mango ergonómico, ideal para trabajos generales.</p> *@
+                    </div>
+                    <div class="card-action">
+                        <a asp-area="" asp-controller="Home" asp-action="ProductosIni"
+                           class="btn grey lighten-2 black-text">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            @* Cemento *@
+            <div class="col s12 m6 l3">
+                <div class="card hoverable" >
+                    <div class="card-image">
+                        <img src="@(Url.Content("~/Imagenes/Cemento_card.png"))" alt="Martillo">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">Cemento ARGOS</span>
+                       @*  <p>Bolsa de cemento Argos 42,5 kg, máxima calidad y fraguado controlado.</p> *@
+                    </div>
+                    <div class="card-action">
+                        <a asp-area="" asp-controller="Home" asp-action="ProductosIni"
+                           class="btn grey lighten-2 black-text">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            @* Tornillos *@
+            <div class="col s12 m6 l3">
+                <div class="card hoverable">
+                    <div class="card-image">
+                        <img src="@(Url.Content("~/Imagenes/tornillos_card.png"))" alt="Martillo">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title">Tornillos de Acero</span>
+                        @* <p>Paquete de tornillos de acero surtidos para todo tipo de fijaciones de calidad.</p> *@
+                    </div>
+                    <div class="card-action">
+                        <a asp-area="" asp-controller="Home" asp-action="ProductosIni"
+                           class="btn grey lighten-2 black-text">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+</div>
+
+
+
+

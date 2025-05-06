@@ -1,0 +1,131 @@
+﻿@model IEnumerable<WebAppFerreteria.Models.Pedidos>
+
+@{
+    ViewData["Title"] = "Pedidos";
+}
+
+<style>
+    body {
+        background-color: #1D1D1D;
+        color: white;
+    }
+
+    .container-pedido {
+        margin-top: 60px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .btn-create {
+        background-color: #43a047;
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 6px;
+        text-decoration: none;
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+
+    .btn-create:hover {
+        background-color: #388e3c;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #2C2C2C;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    th, td {
+        padding: 14px;
+        text-align: left;
+        border-bottom: 1px solid #444;
+    }
+
+    th {
+        background-color: #333;
+        color: #fb8c00;
+    }
+
+    tr:hover {
+        background-color: #383838;
+    }
+
+    .action-links a {
+        margin-right: 10px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .action-links a:hover {
+        text-decoration: underline;
+    }
+    .btn-orange {
+        background-color: #fb8c00  !important;
+    }
+    .btn-blue {
+        background-color: #1976d2 !important;
+        color: white !important;
+        margin-top: 30px;
+    }
+</style>
+
+<div class="container container-pedido">
+    <h1>Lista de Pedidos</h1>
+
+    <p>
+        <a asp-action="Create" class="btn btn-orange">
+            <i class="material-icons left">add</i>Agregar Pedido
+        </a>
+    </p>
+
+    <div class="table-container">
+        <table class="highlight responsive-table centered">
+            <thead class="orange-header white-text">
+                <tr>
+                    <th>Pedido #</th>
+                    <th>Fecha de Pedido</th>
+                    <th>Estado</th>
+                    <th>Dirección de Entrega</th>
+                    <th>Nombre Cliente</th>
+                    <th>Nombre Empleado Encargado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.FechaPedido.ToShortDateString()</td>
+                        <td>@item.Estado</td>
+                        <td>@item.DireccionEntrega</td>
+                        <td>@item.Cliente?.Nombre</td>
+                        <td>@item.Empleado?.NombreCompleto</td>
+                        <td class="action-links">
+                            <a asp-action="Edit" asp-route-id="@item.Id">✏️ Editar</a>
+                            <a asp-action="Details" asp-route-id="@item.Id">🔍 Detalles</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id">🗑️ Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <p></p>
+        <a asp-controller="DetallesPedidos" asp-action="Index" class="btn btn-blue">
+            Detalles Pedidos
+        </a>
+    </p>
+
+</div>

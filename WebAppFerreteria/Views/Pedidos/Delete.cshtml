@@ -1,0 +1,126 @@
+﻿@model WebAppFerreteria.Models.Pedidos
+
+@{
+    ViewData["Title"] = "Eliminar Pedido";
+}
+
+<style>
+    body {
+        background-color: #1D1D1D;
+    }
+
+    .delete-container {
+        background-color: #212121;
+        padding: 40px;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        border-radius: 10px;
+        color: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .page-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #2C2C2C;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    th, td {
+        padding: 14px;
+        text-align: left;
+        border-bottom: 1px solid #444;
+    }
+
+    th {
+        background-color: #333;
+        color: #fb8c00;
+    }
+
+    tr:hover {
+        background-color: #383838;
+    }
+
+    .btn-danger {
+        background-color: #d32f2f !important;
+        color: white !important;
+    }
+
+    .action-buttons {
+        margin-top: 30px;
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    a {
+        color: #fb8c00;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+    .sub-title {
+        font-size: 1.2rem;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+</style>
+
+<div class="container delete-container">
+    <h4 class="page-title">Eliminar Pedido</h4>
+
+    <div class="sub-title">¿Estás seguro de que deseas eliminar este pedido?</div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Campo</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Fecha del Pedido</td>
+                <td>@Model.FechaPedido</td>
+            </tr>
+            <tr>
+                <td>Estado</td>
+                <td>@Model.Estado</td>
+            </tr>
+            <tr>
+                <td>Dirección de Entrega</td>
+                <td>@Model.DireccionEntrega</td>
+            </tr>
+            <tr>
+                <td>Cliente</td>
+                <td>@Model.Cliente?.Nombre</td>
+            </tr>
+            <tr>
+                <td>Empleado</td>
+                <td>@Model.Empleado?.NombreCompleto</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <div class="action-buttons">
+            <button type="submit" class="btn btn-danger">
+                Eliminar
+            </button>
+            <a asp-action="Index" class="btn btn-orange">
+                Volver a la lista
+            </a>
+        </div>
+    </form>
+</div>

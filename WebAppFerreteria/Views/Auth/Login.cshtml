@@ -1,0 +1,70 @@
+@model WebAppFerreteria.Models.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<body style="background-color: #1D1D1D;">
+    <div class="container">
+        <div class="row" style="margin-top: 10%;">
+            <div class="col s12 m8 l6 offset-m2 offset-l3">
+                <div class="card">
+                    <div class="card-content grey darken-4 white-text">
+
+                        <!-- Icono de usuario -->
+                        <div class="center-align">
+                            <i class="material-icons large white-text">person</i>
+                        </div>
+
+                        <!-- Título -->
+                        <span class="card-title center white-text" style="font-weight: bold;">Iniciar Sesión</span>
+
+                        <!-- Formulario -->
+                        <form asp-action="Login" method="post">
+                            <!-- Email / Nombre de usuario -->
+                            <div class="input-field">
+                                <i class="material-icons prefix white-text">email</i>
+                                <input asp-for="NombreUsuario" id="NombreUsuario" type="text" class="validate white-text" required />
+                                <label for="NombreUsuario">Usuario</label>
+                                <span asp-validation-for="NombreUsuario" class="red-text"></span>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="input-field">
+                                <i class="material-icons prefix white-text">lock</i>
+                                <input asp-for="Contrasena" id="Contrasena" type="password" class="validate white-text" required />
+                                <label for="Contrasena">Contraseña</label>
+                                <span asp-validation-for="Contrasena" class="red-text"></span>
+                            </div>
+
+                            <!-- Botón y registro centrado -->
+                            <div class="center-align" style="margin-top: 30px;">
+                                <button class="btn waves-effect waves-light  orange darken-1" type="submit" name="action">
+                                    INICIAR SESIÓN
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            @if (!ViewData.ModelState.IsValid)
+            {
+                foreach (var modelError in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <text>
+                        M.toast({ html: '@modelError.ErrorMessage', classes: 'red darken-2 white-text', displayLength: 4000 });
+                    </text>
+                }
+            }
+        });
+    </script>
+}

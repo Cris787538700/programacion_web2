@@ -1,0 +1,124 @@
+﻿@model IEnumerable<WebAppFerreteria.Models.Usuarios>
+
+@{
+    ViewData["Title"] = "Lista de Usuarios";
+}
+
+<style>
+    body {
+        background-color: #1D1D1D;
+        color: white;
+    }
+
+    .container-usuario {
+        margin-top: 60px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .btn-create {
+        background-color: #43a047;
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 6px;
+        text-decoration: none;
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+
+    .btn-create:hover {
+        background-color: #388e3c;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #2C2C2C;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    th, td {
+        padding: 14px;
+        text-align: left;
+        border-bottom: 1px solid #444;
+    }
+
+    th {
+        background-color: #333;
+        color: #fb8c00;
+    }
+
+    tr:hover {
+        background-color: #383838;
+    }
+
+    .action-links a {
+        margin-right: 10px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .action-links a:hover {
+        text-decoration: underline;
+    }
+
+    .btn-orange {
+        background-color: #fb8c00  !important;
+    }
+</style>
+
+<div class="container container-usuario">
+    <h1>Lista de Usuarios</h1>
+
+    <p>
+        <a asp-action="Create" class="btn btn-orange">
+            <i class="material-icons left">add</i>Agregar Usuario
+        </a>
+    </p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre de usuario</th>
+                <th>Contraseña</th>
+                <th>Rol</th>
+                <th>Nombre completo</th>
+                <th>¿Está bloqueado?</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.NombreUsuario)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Contrasena)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Rol)</td>
+                    <td>@Html.DisplayFor(modelItem => item.NombreCompleto)</td>
+                    <td>
+                        @if (item.EstaBloqueado)
+                        {
+                            <span class="red-text">Sí</span> <!-- Usuario bloqueado -->
+                        }
+                        else
+                        {
+                            <span class="green-text">No</span> <!-- Usuario no bloqueado -->
+                        }
+                    </td>
+                    <td class="action-links">
+                        <a asp-action="Edit" asp-route-id="@item.Id">✏️ Editar</a>
+                        <a asp-action="Details" asp-route-id="@item.Id">🔍 Detalles</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id">🗑️ Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

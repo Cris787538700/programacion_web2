@@ -1,0 +1,109 @@
+﻿@model WebAppFerreteria.Models.Facturas
+
+@{
+    ViewData["Title"] = "Crear Factura";
+}
+
+<style>
+    body {
+        background-color: #1D1D1D;
+    }
+
+    .form-container {
+        background-color: #212121;
+        padding: 40px;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        border-radius: 10px;
+        color: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .form-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .form-group label {
+        color: #ccc;
+    }
+
+    .form-control {
+        background-color: #2c2c2c;
+        color: white;
+        border: none;
+    }
+
+    .form-control:focus {
+        background-color: #2c2c2c;
+        color: white;
+        border: 1px solid #fb8c00;
+        box-shadow: none;
+    }
+
+    .text-danger {
+        color: #ff5252 !important;
+    }
+
+    .btn-orange {
+        background-color: #fb8c00 !important;
+        color: white !important;
+    }
+
+    .action-buttons {
+        margin-top: 30px;
+        display: flex;
+        gap: 15px;
+    }
+
+    a {
+        color: #fb8c00;
+    }
+
+    input.select-dropdown {
+        color: white;
+    }
+</style>
+
+<div class="container form-container">
+    <h2 class="form-title">Crear Factura</h2>
+
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <!-- PedidoId (Dropdown) -->
+        <div class="form-group">
+            <label asp-for="PedidoId" class="control-label">Pedido</label>
+            <select asp-for="PedidoId" class="form-control" asp-items="ViewBag.PedidoId">
+                <option value="">Seleccione un Pedido</option>
+            </select>
+            <span asp-validation-for="PedidoId" class="text-danger"></span>
+        </div>
+
+        <!-- Total -->
+        <div class="form-group">
+            <label asp-for="Total" class="control-label">Total</label>
+            <input asp-for="Total" class="form-control" />
+            <span asp-validation-for="Total" class="text-danger"></span>
+        </div>
+
+        <!-- MetodoPago -->
+        <div class="form-group">
+            <label asp-for="MetodoPago" class="control-label">Método de Pago</label>
+            <input asp-for="MetodoPago" class="form-control" />
+            <span asp-validation-for="MetodoPago" class="text-danger"></span>
+        </div>
+
+        <!-- Action buttons -->
+        <div class="action-buttons">
+            <button type="submit" class="btn btn-orange">Crear</button>
+            <a asp-action="Index" class="btn btn-outline-light">Volver</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

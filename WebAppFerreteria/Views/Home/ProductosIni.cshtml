@@ -1,0 +1,175 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="hero-section" style="background-color: #1D1D1D;">
+
+    <div class="hero-overlay center-align">
+        <h1 class="white-text"><u>PRODUCTOS</u></h1>
+    </div>
+
+    <!-- Vista Productos -->
+    <div class="offers-banner" style="background:#e0e0e0;">
+        <div class="container products-section">
+            <div class="row"
+                 style="display: flex; flex-wrap: wrap; align-items: stretch; margin-bottom: 0;">
+
+                <!-- Caja de Herramientas -->
+                <div class="col s12 m6 l3" style="display: flex; padding-bottom: 1rem;">
+                    <div class="card hoverable" style="display: flex; flex-direction: column; flex: 1;">
+                        <div class="card-image" style="flex-shrink: 0;">
+                            <img src="@(Url.Content("~/Imagenes/caja_de_herramientas_card.png"))" alt="Caja de Herramientas">
+                        </div>
+                        <div class="card-content" style="flex: 1;">
+                            <span class="card-title">Caja de Herramientas</span>
+                            <p>Caja plástica resistente, perfecta para almacenar y organizar herramientas.</p>
+                        </div>
+                        <div class="card-action" style="margin-top: auto;">
+                            <a asp-controller="Productos"
+                               asp-action="Details"
+                               asp-route-id="1"
+                               class="btn grey lighten-2 black-text">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Martillo -->
+                <div class="col s12 m6 l3" style="display: flex; padding-bottom: 1rem;">
+                    <div class="card hoverable" style="display: flex; flex-direction: column; flex: 1;">
+                        <div class="card-image" style="flex-shrink: 0;">
+                            <img src="@(Url.Content("~/Imagenes/martillo_card.png"))" alt="Martillo de Acero">
+                        </div>
+                        <div class="card-content" style="flex: 1;">
+                            <span class="card-title">Martillo de Acero</span>
+                            <p>Martillo de acero con mango ergonómico, ideal para trabajos generales.</p>
+                        </div>
+                        <div class="card-action" style="margin-top: auto;">
+                            <a asp-controller="Productos"
+                               asp-action="Details"
+                               asp-route-id="2"
+                               class="btn grey lighten-2 black-text">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cemento ARGOS -->
+                <div class="col s12 m6 l3" style="display: flex; padding-bottom: 1rem;">
+                    <div class="card hoverable" style="display: flex; flex-direction: column; flex: 1;">
+                        <div class="card-image" style="flex-shrink: 0;">
+                            <img src="@(Url.Content("~/Imagenes/Cemento_card.png"))" alt="Cemento ARGOS">
+                        </div>
+                        <div class="card-content" style="flex: 1;">
+                            <span class="card-title">Cemento ARGOS</span>
+                            <p>Bolsa de cemento Argos 42,5 kg, máxima calidad y fraguado controlado.</p>
+                        </div>
+                        <div class="card-action" style="margin-top: auto;">
+                            <a asp-controller="Productos"
+                               asp-action="Details"
+                               asp-route-id="3"
+                               class="btn grey lighten-2 black-text">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tornillos de Acero -->
+                <div class="col s12 m6 l3" style="display: flex; padding-bottom: 1rem;">
+                    <div class="card hoverable" style="display: flex; flex-direction: column; flex: 1;">
+                        <div class="card-image" style="flex-shrink: 0;">
+                            <img src="@(Url.Content("~/Imagenes/tornillos_card.png"))" alt="Tornillos de Acero">
+                        </div>
+                        <div class="card-content" style="flex: 1;">
+                            <span class="card-title">Tornillos de Acero</span>
+                            <p>Paquete de tornillos de acero surtidos para todo tipo de fijaciones de calidad.</p>
+                        </div>
+                        <div class="card-action" style="margin-top: auto;">
+                            <a asp-controller="Productos"
+                               asp-action="Details"
+                               asp-route-id="4"
+                               class="btn grey lighten-2 black-text">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Destornillador de Estría -->
+                <div class="col s12 m6 l3" style="display: flex; padding-bottom: 1rem;">
+                    <div class="card hoverable" style="display: flex; flex-direction: column; flex: 1;">
+                        <div class="card-image" style="flex-shrink: 0;">
+                            <img src="@(Url.Content("~/Imagenes/destornillador_estria_card.png"))" alt="Destornillador de Estría">
+                        </div>
+                        <div class="card-content" style="flex: 1;">
+                            <span class="card-title">Destornillador de Estría</span>
+                            <p>Destornillador de punta estriada con mango antideslizante ergonómico.</p>
+                        </div>
+                        <div class="card-action" style="margin-top: auto;">
+                            <a asp-controller="Productos"
+                               asp-action="Details"
+                               asp-route-id="5"
+                               class="btn grey lighten-2 black-text">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Llave Ajustable -->
+                <div class="col s12 m6 l3" style="display: flex; padding-bottom: 1rem;">
+                    <div class="card hoverable" style="display: flex; flex-direction: column; flex: 1;">
+                        <div class="card-image" style="flex-shrink: 0;">
+                            <img src="@(Url.Content("~/Imagenes/llave_ajustable_card.png"))" alt="Llave Ajustable">
+                        </div>
+                        <div class="card-content" style="flex: 1;">
+                            <span class="card-title">Llave Ajustable</span>
+                            <p>Llave ajustable de acero para tuercas y tornillos, mango antideslizante.</p>
+                        </div>
+                        <div class="card-action" style="margin-top: auto;">
+                            <a asp-controller="Productos"
+                               asp-action="Details"
+                               asp-route-id="6"
+                               class="btn grey lighten-2 black-text">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cemento ARGOS -->
+                <div class="col s12 m6 l3" style="display: flex; padding-bottom: 1rem;">
+                    <div class="card hoverable" style="display: flex; flex-direction: column; flex: 1;">
+                        <div class="card-image" style="flex-shrink: 0;">
+                            <img src="@(Url.Content("~/Imagenes/Cemento_card.png"))" alt="Cemento ARGOS">
+                        </div>
+                        <div class="card-content" style="flex: 1;">
+                            <span class="card-title">Cemento ARGOS</span>
+                            <p>Bolsa de cemento Argos 42,5 kg, máxima calidad y fraguado controlado.</p>
+                        </div>
+                        <div class="card-action" style="margin-top: auto;">
+                            <a asp-controller="Productos"
+                               asp-action="Details"
+                               asp-route-id="3"
+                               class="btn grey lighten-2 black-text">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Maceta de Acero -->
+                <div class="col s12 m6 l3" style="display: flex; padding-bottom: 1rem;">
+                    <div class="card hoverable" style="display: flex; flex-direction: column; flex: 1;">
+                        <div class="card-image" style="flex-shrink: 0;">
+                            <img src="@(Url.Content("~/Imagenes/Maceta_card.png"))" alt="Maceta de Acero">
+                        </div>
+                        <div class="card-content" style="flex: 1;">
+                            <span class="card-title">Maceta de Acero</span>
+                            <p>Maceta robusta de acero, ideal para proyectos de jardinería y construcción.</p>
+                        </div>
+                        <div class="card-action" style="margin-top: auto;">
+                            <a asp-controller="Productos"
+                               asp-action="Details"
+                               asp-route-id="7"
+                               class="btn grey lighten-2 black-text">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

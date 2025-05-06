@@ -1,0 +1,117 @@
+﻿@model WebAppFerreteria.Models.Productos
+
+@{
+    ViewData["Title"] = "Editar Producto";
+}
+
+<style>
+    body {
+        background-color: #1D1D1D;
+    }
+
+    .form-container {
+        background-color: #212121;
+        padding: 40px;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        border-radius: 10px;
+        color: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .page-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    label {
+        color: #ccc;
+        margin-top: 15px;
+    }
+
+    .form-control {
+        background-color: #2C2C2C;
+        color: white;
+        border: 1px solid #444;
+    }
+
+    .form-control:focus {
+        background-color: #2C2C2C;
+        border-color: #fb8c00;
+        box-shadow: none;
+    }
+
+    .btn-save {
+        background-color: #43a047 !important;
+        color: white !important;
+    }
+
+    .btn-back {
+        background-color: #fb8c00 !important;
+        color: white !important;
+        margin-left: 10px;
+    }
+
+    .form-group span.text-danger {
+        font-size: 0.9rem;
+    }
+
+    .action-buttons {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    a {
+        color: #fb8c00;
+    }
+</style>
+
+<div class="container form-container">
+    <h4 class="page-title">Editar Información del Producto</h4>
+
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+
+        <div class="form-group">
+            <label asp-for="Nombre"></label>
+            <input asp-for="Nombre" class="form-control" placeholder="Ej: Tornillo de acero" />
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Descripcion"></label>
+            <input asp-for="Descripcion" class="form-control" placeholder="Ej: Tornillo resistente para madera" />
+            <span asp-validation-for="Descripcion" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Precio Unitario</label>
+            <input asp-for="PrecioUnitario" class="form-control" placeholder="Ej: 2500" />
+            <span asp-validation-for="PrecioUnitario" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Stock"></label>
+            <input asp-for="Stock" class="form-control" placeholder="Ej: 100" />
+            <span asp-validation-for="Stock" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Imagen URL</label>
+            <input asp-for="ImagenUrl" class="form-control" placeholder="URL de la imagen del producto" />
+            <span asp-validation-for="ImagenUrl" class="text-danger"></span>
+        </div>
+
+        <div class="action-buttons">
+            <input type="submit" value="Guardar Cambios" class="btn btn-save" />
+            <a asp-action="Index" class="btn btn-back">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

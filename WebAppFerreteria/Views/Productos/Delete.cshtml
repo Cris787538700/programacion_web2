@@ -1,0 +1,98 @@
+﻿@model WebAppFerreteria.Models.Productos
+
+@{
+    ViewData["Title"] = "Eliminar Producto";
+}
+
+<style>
+    body {
+        background-color: #1D1D1D;
+    }
+
+    .delete-container {
+        background-color: #212121;
+        padding: 40px;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        border-radius: 10px;
+        color: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .page-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .sub-title {
+        font-size: 1.2rem;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    dl.row dt {
+        color: #ccc;
+    }
+
+    dl.row dd {
+        color: #fff;
+    }
+
+    .btn-orange {
+        background-color: #fb8c00 !important;
+        color: white !important;
+    }
+
+    .btn-danger {
+        background-color: #d32f2f !important;
+        color: white !important;
+    }
+
+    .action-buttons {
+        margin-top: 30px;
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    a {
+        color: #fb8c00;
+    }
+</style>
+
+<div class="container delete-container">
+    <h4 class="page-title">Eliminar Producto</h4>
+
+    <div class="sub-title">¿Estás seguro de que deseas eliminar este producto?</div>
+
+    <dl class="row">
+        <dt class="col-sm-3">Nombre</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Nombre)</dd>
+
+        <dt class="col-sm-3">Descripción</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Descripcion)</dd>
+
+        <dt class="col-sm-3">Precio Unitario</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.PrecioUnitario)</dd>
+
+        <dt class="col-sm-3">Stock</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Stock)</dd>
+
+        <dt class="col-sm-3">Imagen URL</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.ImagenUrl)</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <div class="action-buttons">
+            <button type="submit" class="btn btn-danger">
+                <i class="material-icons left">delete</i>Eliminar
+            </button>
+            <a asp-action="Index" class="btn btn-orange">
+                <i class="material-icons left">arrow_back</i>Volver
+            </a>
+        </div>
+    </form>
+</div>

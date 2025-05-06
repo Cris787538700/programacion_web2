@@ -1,0 +1,160 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    var rol = HttpContextAccessor.HttpContext?.Session.GetString("Rol");
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebAppFerreteria</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="~/materialize/css/materialize.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/style.css" />
+    <script type="text/javascript" src="~/js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="~/materialize/js/materialize.js"></script>
+    <script type="text/javascript" src="~/js/componentesMaterialize.js"></script>
+
+    <style>
+        /* Asegura que el footer siempre se quede al fondo de la página */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto; /* Hace que el contenido ocupe el espacio restante */
+        }
+
+        footer {
+            flex-shrink: 0; /* Evita que el footer se reduzca */
+        }
+
+        /* Estilo para la barra de navegación */
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-wrapper .col {
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-wrapper ul {
+            display: flex;
+            justify-content: space-around;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .nav-wrapper ul li {
+            margin: 0 10px;
+        }
+
+        /* Para que el logo no se desborde */
+        .header-logo {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="grey darken-4 white-text">
+            <div class="nav-wrapper">
+                <div>
+                    <img src="~/Imagenes/Logo_negro.png" class="header-logo" alt="Logo" style="height:90px; width:200px;" />
+                </div>
+
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+
+                <ul class="right hide-on-med-and-down">
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="ProductosIni">Productos</a></li>
+                    @if (string.IsNullOrEmpty(rol))
+                    {
+                        <li><a asp-controller="Auth" asp-action="Login">Iniciar Sesión</a></li>
+                    }
+                    else
+                    {
+                        <li><a asp-controller="Clientes" asp-action="Index">Clientes</a></li>
+                        <li><a asp-controller="Pedidos" asp-action="Index">Pedidos</a></li>
+                        <li><a asp-controller="Facturas" asp-action="Index">Facturas</a></li>
+                        @if (rol == "Admin")
+                        {
+                            <li><a asp-controller="Usuarios" asp-action="Index">Usuarios</a></li>
+                            <li><a asp-controller="Productos" asp-action="Index">Productos C</a></li>
+                        }
+                        <li><a asp-controller="Auth" asp-action="Logout">Cerrar Sesión</a></li>
+                    }
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Menú lateral mobile -->
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="sass.html">Inicio</a></li>
+            <li><a href="badges.html">Productos</a></li>
+            <li><a href="collapsible.html">Servicios</a></li>
+            <li><a href="mobile.html">Contacto</a></li>
+            <li><a href="sass.html">Login</a></li>
+            <li><a href="badges.html">User</a></li>
+        </ul>
+    </header>
+
+   <main>
+       <section>
+            @RenderBody()
+       </section>       
+   </main>
+
+    <footer class="grey darken-4 white-text">
+        <div class="container">
+            <div class="row">
+                <!-- Redes sociales -->
+                <div class="col l6 s12">
+                    <h5 class="white-text">Síguenos</h5>
+                    <a href="https://www.facebook.com/profile" target="_blank" class="white-text" style="margin-right: 10px;">
+                        <i class="fab fa-facebook fa-2x"></i>
+                    </a>
+                    <a href="https://www.instagram.com/mvcferreteria/" target="_blank" class="white-text" style="margin-right: 10px;">
+                        <i class="fab fa-instagram fa-2x"></i>
+                    </a>
+                    <a href="https://wa.me/3008187991" target="_blank" class="white-text" style="margin-right: 10px;">
+                        <i class="fab fa-whatsapp fa-2x"></i>
+                    </a>
+                </div>
+
+                <!-- Contacto con asesor -->
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">¿Necesitas ayuda?</h5>
+                    <p class="grey-text text-lighten-4">
+                        Chatea con uno de nuestros asesores:
+                    </p>
+                    <a class="btn orange darken-1" href="https://wa.me/3008187991" target="_blank">
+                        <i class="fab fa-whatsapp left"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2025 Tu Empresa
+                <a class="grey-text text-lighten-4 right" href="#!">Más información</a>
+            </div>
+        </div>
+    </footer>
+   
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,114 @@
+﻿@model WebAppFerreteria.Models.Pedidos
+
+@{
+    ViewData["Title"] = "Detalles del Pedido";
+}
+
+<style>
+    body {
+        background-color: #1D1D1D;
+    }
+
+    .details-container {
+        background-color: #212121;
+        padding: 40px;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        border-radius: 10px;
+        color: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .page-title {
+        font-size: 2rem;
+        margin-bottom: 30px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .table {
+        background-color: #2C2C2C;
+        color: white;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+
+    .table th, .table td {
+        padding: 15px;
+        text-align: left;
+    }
+
+    .table th {
+        background-color: #333;
+        color: #fb8c00;
+    }
+
+    .table td {
+        background-color: #2C2C2C;
+    }
+
+    .btn-orange {
+        background-color: #fb8c00 !important;
+        color: white !important;
+    }
+
+    .btn-blue {
+        background-color: #1976d2 !important;
+        color: white !important;
+    }
+
+    .action-buttons {
+        margin-top: 30px;
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    a {
+        color: #fb8c00;
+    }
+</style>
+
+<div class="container details-container">
+    <h4 class="page-title">Detalles del Pedido</h4>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Campo</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Fecha del Pedido</strong></td>
+                <td>@Html.DisplayFor(model => model.FechaPedido)</td>
+            </tr>
+            <tr>
+                <td><strong>Estado</strong></td>
+                <td>@Html.DisplayFor(model => model.Estado)</td>
+            </tr>
+            <tr>
+                <td><strong>Dirección de Entrega</strong></td>
+                <td>@Html.DisplayFor(model => model.DireccionEntrega)</td>
+            </tr>
+            <tr>
+                <td><strong>Cliente</strong></td>
+                <td>@Html.DisplayFor(model => model.Cliente.Id)</td>
+            </tr>
+            <tr>
+                <td><strong>Empleado</strong></td>
+                <td>@Html.DisplayFor(model => model.Empleado.Id)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="action-buttons">
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-blue">
+            <i class="material-icons left">edit</i>Editar
+        </a>
+        <a asp-action="Index" class="btn btn-orange">
+            <i class="material-icons left">arrow_back</i>Volver a la lista
+        </a>
+    </div>
+</div>
