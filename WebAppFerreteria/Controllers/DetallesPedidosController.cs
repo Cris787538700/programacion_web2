@@ -149,17 +149,17 @@ namespace WebAppFerreteria.Controllers
         // POST: DetallesPedidos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var detallesPedido = await _context.DetallesPedido.FindAsync(id);
-            if (detallesPedido != null)
-            {
-                _context.DetallesPedido.Remove(detallesPedido);
-            }
+        //public async Task<IActionResult> DeleteConfirmed(int id)
+        //{
+        //    var detallesPedido = await _context.DetallesPedido.FindAsync(id);
+        //    if (detallesPedido != null)
+        //    {
+        //        _context.DetallesPedido.Remove(detallesPedido);
+        //    }
 
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+        //    await _context.SaveChangesAsync();
+        //    return RedirectToAction(nameof(Index));
+        //}
 
         private bool DetallesPedidoExists(int id)
         {
